@@ -1,0 +1,243 @@
+{
+  "corpus_documents": 21,
+  "chunks": 139,
+  "removed_injection_lines": 1,
+  "corpus_sha256": "5c9936c86f7d463194741f3f7099faae4d49355b9125735944d548ec00aaf73b",
+  "metric": "document recall@8 with linked editions",
+  "hits": 17,
+  "eligible": 17,
+  "recall": 1.0,
+  "note": "Public demos only; document recall is not answer quality or private leaderboard performance. Expected IDs manually mapped from published examples.",
+  "cases": [
+    {
+      "id": "1",
+      "expected_document": "D01",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "hit": true
+    },
+    {
+      "id": "2",
+      "expected_document": "D20",
+      "retrieved": [
+        "D06",
+        "D07",
+        "D17",
+        "D20"
+      ],
+      "hit": true
+    },
+    {
+      "id": "3",
+      "expected_document": null,
+      "retrieved": [
+        "D08",
+        "D11",
+        "D13",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "hit": null
+    },
+    {
+      "id": "4",
+      "expected_document": "D01",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D04",
+        "D06",
+        "D07",
+        "D17"
+      ],
+      "hit": true
+    },
+    {
+      "id": "5",
+      "expected_document": "D06",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D15"
+      ],
+      "hit": true
+    },
+    {
+      "id": "6",
+      "expected_document": "D02",
+      "retrieved": [
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07"
+      ],
+      "hit": true
+    },
+    {
+      "id": "7",
+      "expected_document": "D01",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D04",
+        "D06",
+        "D07",
+        "D15",
+        "D18"
+      ],
+      "hit": true
+    },
+    {
+      "id": "8",
+      "expected_document": "D02",
+      "retrieved": [
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D17"
+      ],
+      "hit": true
+    },
+    {
+      "id": "9",
+      "expected_document": "D03",
+      "retrieved": [
+        "D02",
+        "D03",
+        "D04",
+        "D06",
+        "D07",
+        "D15",
+        "D18"
+      ],
+      "hit": true
+    },
+    {
+      "id": "10",
+      "expected_document": "D07",
+      "retrieved": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D15",
+        "D20"
+      ],
+      "hit": true
+    },
+    {
+      "id": "11",
+      "expected_document": "D08",
+      "retrieved": [
+        "D02",
+        "D03",
+        "D04",
+        "D06",
+        "D07",
+        "D08",
+        "D21"
+      ],
+      "hit": true
+    },
+    {
+      "id": "12",
+      "expected_document": "D20",
+      "retrieved": [
+        "D19",
+        "D20",
+        "D21"
+      ],
+      "hit": true
+    },
+    {
+      "id": "13",
+      "expected_document": "D09",
+      "retrieved": [
+        "D06",
+        "D07",
+        "D09",
+        "D10",
+        "D15"
+      ],
+      "hit": true
+    },
+    {
+      "id": "14",
+      "expected_document": "D19",
+      "retrieved": [
+        "D18",
+        "D19",
+        "D20",
+        "D21"
+      ],
+      "hit": true
+    },
+    {
+      "id": "15",
+      "expected_document": "D01",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D15"
+      ],
+      "hit": true
+    },
+    {
+      "id": "16",
+      "expected_document": "D02",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D17"
+      ],
+      "hit": true
+    },
+    {
+      "id": "17",
+      "expected_document": "D03",
+      "retrieved": [
+        "D02",
+        "D03",
+        "D04",
+        "D06",
+        "D07",
+        "D15"
+      ],
+      "hit": true
+    },
+    {
+      "id": "18",
+      "expected_document": "D07",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "hit": true
+    }
+  ]
+}

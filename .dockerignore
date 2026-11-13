@@ -1,0 +1,9 @@
+.git
+.env
+.env.*
+__pycache__
+build
+output
+tests
+docs
+data/corpus
