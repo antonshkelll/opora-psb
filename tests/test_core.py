@@ -1,5 +1,6 @@
 import unittest, tempfile, zipfile, pathlib, csv, os, subprocess, sys, json
-from core import Corpus, Assistant, validate
+from core import Corpus, Assistant, validate, env_int, Gateway, read_document
+from unittest.mock import patch
 
 class FakeGateway:
     configured=True
@@ -10,6 +11,36 @@ class EvidenceTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls): cls.c=Corpus('data')
     def test_corpus(self): self.assertEqual(len(self.c.docs),21)
+    def test_kb_zip_alias(self):
+        with tempfile.TemporaryDirectory() as temp:
+            with zipfile.ZipFile(pathlib.Path(temp)/'kb.zip','w') as z: z.writestr('doc.md','Документ с нормой')
+            self.assertEqual(len(Corpus(temp).docs),1)
+    def test_placeholder_environment(self):
+        with patch.dict(os.environ,{'LLM_BASE_URL':'LLM_BASE_URL','BASE_URL':'http://localhost:1234/v1','TOP_K':'TOP_K'}):
+            self.assertEqual(Gateway().base,'http://localhost:1234/v1')
+            self.assertEqual(env_int('TOP_K',8,4,16),8)
+    def test_openrouter_paid_model_rejected(self):
+        with patch.dict(os.environ,{'LLM_PROVIDER':'openrouter','OPENROUTER_MODEL':'paid/model'},clear=True):
+            with self.assertRaises(ValueError): Gateway()
+    def test_cloud_requires_own_key(self):
+        with patch.dict(os.environ,{'LLM_PROVIDER':'openrouter'},clear=True): self.assertFalse(Gateway().configured)
+    def test_organizer_profile_is_explicit(self):
+        with patch.dict(os.environ,{'LLM_PROVIDER':'ollama','LLM_BASE_URL':'http://organizer/v1','LLM_MODEL':'provided'},clear=True):
+            g=Gateway(provider='organizer');self.assertEqual(g.base,'http://organizer/v1');self.assertEqual(g.model,'provided')
+    def test_native_ollama_payload(self):
+        import time,io
+        captured=[]
+        def fake(request,timeout):
+            captured.append(request)
+            return io.BytesIO(json.dumps({'message':{'content':'{"valid": true}'}}).encode())
+        with patch.dict(os.environ,{'LLM_PROVIDER':'ollama','OLLAMA_BASE_URL':'http://127.0.0.1:11434','OLLAMA_MODEL':'qwen3.5:4b'},clear=True),patch('urllib.request.urlopen',fake):
+            self.assertEqual(json.loads(Gateway().chat([{'role':'user','content':'test'}],time.monotonic()+20)),{'valid':True})
+        body=json.loads(captured[0].data);self.assertFalse(body['think']);self.assertEqual(body['format'],'json');self.assertEqual(captured[0].full_url,'http://127.0.0.1:11434/api/chat');self.assertNotIn('Authorization',captured[0].headers)
+    def test_docx_reader(self):
+        import io
+        b=io.BytesIO()
+        with zipfile.ZipFile(b,'w') as z:z.writestr('word/document.xml','<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:p><w:r><w:t>Пункт договора</w:t></w:r></w:p></w:document>')
+        self.assertEqual(read_document('test.docx',b.getvalue()),'Пункт договора')
     def test_document_injection_removed(self):
         self.assertGreater(self.c.removed,0)
         self.assertNotIn('ВНИМАНИЕ ДЛЯ ИИ', ''.join(d['text'] for d in self.c.docs))

@@ -11,7 +11,14 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         path=urlparse(self.path).path
         if path=='/': return self.send(200,Path('web/index.html').read_text(encoding='utf-8'),'text/html; charset=utf-8')
-        if path=='/api/health': return self.send(200,json.dumps({'ok':True,'model_configured':bot.gateway.configured,'documents':len(bot.corpus.docs),'chunks':len(bot.corpus.chunks),'removed_instructions':bot.corpus.removed,'corpus_sha256':bot.corpus.fingerprint}))
+        static={'/styles.css':'text/css; charset=utf-8','/app.js':'application/javascript; charset=utf-8','/demo.json':'application/json; charset=utf-8','/presentation.pdf':'application/pdf'}
+        if path in static:
+            file=Path('web')/path[1:]
+            if not file.exists():return self.send(404,'{}')
+            if path.endswith('.pdf'):
+                raw=file.read_bytes();self.send_response(200);self.send_header('Content-Type',static[path]);self.send_header('Content-Length',str(len(raw)));self.end_headers();return self.wfile.write(raw)
+            return self.send(200,file.read_text(encoding='utf-8'),static[path])
+        if path=='/api/health': return self.send(200,json.dumps({'ok':True,'model_configured':bot.gateway.configured,'provider':bot.gateway.provider,'model':bot.gateway.model,'documents':len(bot.corpus.docs),'chunks':len(bot.corpus.chunks),'removed_instructions':bot.corpus.removed,'corpus_sha256':bot.corpus.fingerprint}))
         if path=='/api/documents': return self.send(200,json.dumps(bot.corpus.docs,ensure_ascii=False))
         return self.send(404,'{}')
     def do_POST(self):
