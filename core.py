@@ -168,6 +168,12 @@ class Assistant:
         # Small corpus: whole-corpus rescue avoids false abstention from lexical mismatch.
         budget=48000
         evidence=list(sources)
+        if local:
+            # Keep the CPU profile within its context budget instead of relying on truncation.
+            evidence=[];chars=0
+            for source in sources:
+                if chars+len(source['text'])>9000 and evidence: continue
+                evidence.append(source);chars+=len(source['text'])
         existing={s['doc_id'] for s in sources}
         for d in self.corpus.docs:
             # Corporate docs are short: include their complete text as a recall safety net.
