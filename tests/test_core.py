@@ -68,6 +68,11 @@ class EvidenceTests(unittest.TestCase):
         obj={'status':'answered','claims':[{'text':'Ошибочный вывод','evidence':[{'source':s['id'],'quote':s['text'][:80]}]}],'missing':''}
         r=Assistant(self.c,FakeGateway([obj,{'valid':False}])).answer('Арендная плата')
         self.assertEqual(r['status'],'unavailable'); self.assertNotIn('Ошибочный вывод',r['answer'])
+    def test_reviewer_can_identify_missing_norms(self):
+        s=self.c.search('Арендная плата')[0]
+        obj={'status':'answered','claims':[{'text':'Ошибочный вывод','evidence':[{'source':s['id'],'quote':s['text'][:80]}]}],'missing':''}
+        r=Assistant(self.c,FakeGateway([obj,{'valid':False,'insufficient':True,'reason':'Нет применимой нормы'}])).answer('Арендная плата')
+        self.assertEqual(r['status'],'partial');self.assertEqual(r['claims'],[]);self.assertNotIn('Ошибочный вывод',r['answer'])
     def test_zip_contract(self):
         with tempfile.TemporaryDirectory() as temp:
             p=pathlib.Path(temp); (p/'questions.csv').write_text('id,question\nabc,"Вопрос, с запятой"\nxyz,"Другой вопрос"\n',encoding='utf-8')

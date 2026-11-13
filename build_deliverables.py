@@ -38,7 +38,7 @@ with zipfile.ZipFile(out/'opora-submit.zip','w',zipfile.ZIP_DEFLATED) as z:
 with zipfile.ZipFile(out/'opora-final.zip','w',zipfile.ZIP_DEFLATED) as z:
     files=['core.py','solution.py','server.py','requirements.txt','fetch_materials.py','evaluate.py','Dockerfile','compose.yaml','.dockerignore','.env.example','README.md','web/index.html','data/knowledge-base.zip','data/demo_questions.csv','data/demo_output.csv','data/allowed_requirements.txt','output/opora-presentation.pdf']
     files+=['docs/'+p.name for p in (root/'docs').iterdir() if p.is_file()]
-    files+=['tests/test_core.py','build_showcase.py']
+    files+=['tests/test_core.py','build_showcase.py','verify_local.py']
     files += ['web/'+p.name for p in (root/'web').iterdir() if p.is_file() and p.name!='index.html']
     for name in files:z.write(root/name,name)
 for name in ['opora-submit.zip','opora-final.zip','opora-presentation.pdf']:
