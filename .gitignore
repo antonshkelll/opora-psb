@@ -17,3 +17,5 @@ case.txt
 regulations.txt
 build/
 output/*.png
+output/*.zip
+run_report.json

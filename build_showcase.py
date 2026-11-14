@@ -1,24 +1,19 @@
-"""Build clearly labelled public reference scenarios from organizer examples."""
-import csv,json,pathlib,re
+"""Publish recorded model answers with exact evidence; no reference-answer substitution."""
+import json,pathlib
 from core import Corpus,clean_display
-root=pathlib.Path(__file__).parent;c=Corpus(root/'data')
-with (root/'data/demo_questions.csv').open(encoding='utf-8-sig',newline='') as f: questions=list(csv.DictReader(f))
-with (root/'data/demo_output.csv').open(encoding='utf-8-sig',newline='') as f: answers={r['id']:r['answer'] for r in csv.DictReader(f)}
-expected=['D01','D20',None,'D01','D06','D02','D01','D02','D03','D07','D08','D20','D09','D19','D01','D02','D03','D07']
-anchors=['3.1. Арендная','Срок испытания',None,'3.1. Арендная','2.4. Договоры','5.3.','4.3.','5.4.','4.1.','1.3.','Выдача оригиналов','В период испытания','2. Согласие','сезонных работ','6.3.','2.1.','6.1.','3.2.']
+from engine_v2 import LegalIndex
+root=pathlib.Path(__file__).parent
+c=Corpus(root/'data');index=LegalIndex(c)
+report=json.loads((root/'docs/v2-real-demo-report.json').read_text(encoding='utf-8'))
+assert len(report['cases'])==18,'Complete the real benchmark first'
+lookup={u['id']+f':P{n+1:03}':(u,line) for u in index.units for n,line in enumerate(l for l in u['text'].splitlines() if l.strip())}
 cases=[]
-for i,row in enumerate(questions):
-    doc=next((d for d in c.docs if d['id']==expected[i]),None); evidence=[]
-    if doc:
-        start=doc['text'].find(anchors[i]);start=max(0,start)
-        quote=doc['text'][start:start+650]
-        if '\n' in quote:quote=quote[:quote.rfind('\n')]
-        evidence=[{'doc_id':doc['id'],'title':doc['title'],'quote':quote,'provision':'Положение документа'}]
-    text=clean_display(answers[row['id']])
-    verdicts={'1':'450 000 рублей в месяц, до 5-го числа','5':'Да, одобрение директора было необходимо','3':'Для расчёта пособия не хватает данных','4':'В договоре указана другая сумма: 450 000 рублей','9':'Предоплата возможна по соглашению сторон','11':'Четыре рабочих дня превышают установленный срок','15':'Нужно оформить акт возврата помещения'}
-    if row['id']=='1' and evidence:evidence[0]['quote']='\n'.join(evidence[0]['quote'].splitlines()[:3]);evidence[0]['provision']='Пункты 3.1-3.3'
-    if row['id']=='5' and evidence:evidence[0]['quote']=evidence[0]['quote'].splitlines()[0];evidence[0]['provision']='Редакция 2023 года, пункт 2.4'
-    cases.append({'id':row['id'],'question':clean_display(row['question']),'answer':text,'verdict':verdicts.get(row['id'],''),'status':'partial' if row['id']=='3' else 'answered','evidence':evidence})
-payload={'type':'prepared_reference_examples','notice':'Ответы подготовлены заранее по демонстрационным материалам организаторов. Это не результат живой генерации.','documents':[{k:d[k] for k in ('id','title','name','text')} for d in c.docs],'cases':cases,'corpus_sha256':c.fingerprint}
+for row in sorted(report['cases'],key=lambda r:int(r['id'])):
+    evidence=[]
+    for sid in row['diagnostics'].get('selected_paragraphs',[]):
+        unit,quote=lookup[sid]
+        evidence.append({'doc_id':unit['doc_id'],'title':unit['title'],'quote':quote,'provision':sid})
+    cases.append({'id':row['id'],'question':clean_display(row['question']),'answer':row['answer'],'verdict':'','status':row['status'],'evidence':evidence,'elapsed_ms':row['elapsed_ms']})
+payload={'type':'recorded_model_runs','model':report['model'],'notice':'Сохранённые ответы реального локального прогона Qwen3.5 4B. Страница не вызывает модель. Это не оценка DeepSeek и не закрытый тест.','documents':[{k:d[k] for k in ('id','title','name','text')} for d in c.docs],'cases':cases,'corpus_sha256':c.fingerprint}
 (root/'web/demo.json').write_text(json.dumps(payload,ensure_ascii=False),encoding='utf-8')
-print('Built',len(cases),'reference scenarios and',len(c.docs),'documents')
+print('Published',len(cases),'recorded scenarios,',len(c.docs),'documents')

@@ -1,0 +1,179 @@
+{
+  "corpus_documents": 21,
+  "chunks": 171,
+  "removed_injection_lines": 1,
+  "corpus_sha256": "5c9936c86f7d463194741f3f7099faae4d49355b9125735944d548ec00aaf73b",
+  "metric": "document recall@7 with applicability filter",
+  "hits": 17,
+  "eligible": 17,
+  "recall": 1.0,
+  "note": "Public demos only; document recall is not answer quality or private leaderboard performance. Expected IDs manually mapped from published examples.",
+  "cases": [
+    {
+      "id": "1",
+      "expected_document": "D01",
+      "retrieved": [
+        "D01"
+      ],
+      "hit": true
+    },
+    {
+      "id": "2",
+      "expected_document": "D20",
+      "retrieved": [
+        "D20"
+      ],
+      "hit": true
+    },
+    {
+      "id": "3",
+      "expected_document": null,
+      "retrieved": [
+        "D11",
+        "D18",
+        "D20",
+        "D21"
+      ],
+      "hit": null
+    },
+    {
+      "id": "4",
+      "expected_document": "D01",
+      "retrieved": [
+        "D01"
+      ],
+      "hit": true
+    },
+    {
+      "id": "5",
+      "expected_document": "D06",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D06"
+      ],
+      "hit": true
+    },
+    {
+      "id": "6",
+      "expected_document": "D02",
+      "retrieved": [
+        "D02"
+      ],
+      "hit": true
+    },
+    {
+      "id": "7",
+      "expected_document": "D01",
+      "retrieved": [
+        "D01"
+      ],
+      "hit": true
+    },
+    {
+      "id": "8",
+      "expected_document": "D02",
+      "retrieved": [
+        "D02"
+      ],
+      "hit": true
+    },
+    {
+      "id": "9",
+      "expected_document": "D03",
+      "retrieved": [
+        "D03"
+      ],
+      "hit": true
+    },
+    {
+      "id": "10",
+      "expected_document": "D07",
+      "retrieved": [
+        "D05",
+        "D06",
+        "D07"
+      ],
+      "hit": true
+    },
+    {
+      "id": "11",
+      "expected_document": "D08",
+      "retrieved": [
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "hit": true
+    },
+    {
+      "id": "12",
+      "expected_document": "D20",
+      "retrieved": [
+        "D19",
+        "D20"
+      ],
+      "hit": true
+    },
+    {
+      "id": "13",
+      "expected_document": "D09",
+      "retrieved": [
+        "D07",
+        "D09",
+        "D10"
+      ],
+      "hit": true
+    },
+    {
+      "id": "14",
+      "expected_document": "D19",
+      "retrieved": [
+        "D19",
+        "D20"
+      ],
+      "hit": true
+    },
+    {
+      "id": "15",
+      "expected_document": "D01",
+      "retrieved": [
+        "D01"
+      ],
+      "hit": true
+    },
+    {
+      "id": "16",
+      "expected_document": "D02",
+      "retrieved": [
+        "D02",
+        "D04"
+      ],
+      "hit": true
+    },
+    {
+      "id": "17",
+      "expected_document": "D03",
+      "retrieved": [
+        "D03"
+      ],
+      "hit": true
+    },
+    {
+      "id": "18",
+      "expected_document": "D07",
+      "retrieved": [
+        "D01",
+        "D02",
+        "D03",
+        "D06",
+        "D07",
+        "D08",
+        "D20"
+      ],
+      "hit": true
+    }
+  ]
+}

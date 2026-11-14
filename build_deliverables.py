@@ -9,7 +9,7 @@ root=pathlib.Path(__file__).parent; out=root/'output';out.mkdir(exist_ok=True)
 pdfmetrics.registerFont(TTFont('Arial',r'C:\Windows\Fonts\arial.ttf'))
 pdfmetrics.registerFont(TTFont('ArialBold',r'C:\Windows\Fonts\arialbd.ttf'))
 slides=json.loads((root/'docs/slides.json').read_text(encoding='utf-8'))
-c=canvas.Canvas(str(out/'opora-presentation.pdf'),pagesize=(1280,720))
+c=canvas.Canvas(str(out/'opora-presentation-v2.pdf'),pagesize=(1280,720))
 c.setTitle('ОПОРА: VIBESECURITY / Hack&Change 2026');c.setAuthor('VIBESECURITY')
 def text(t,x,y,size,color,font='Arial',width=1120,leading=None):
     c.setFont(font,size);c.setFillColor(HexColor(color));leading=leading or size*1.35
@@ -32,14 +32,15 @@ for i,s in enumerate(slides):
     c.linkURL('https://github.com/antonshkelll/opora-psb',(70,20,1150,85),relative=0,thickness=0)
     c.showPage()
 c.save()
-(root/'web/presentation.pdf').write_bytes((out/'opora-presentation.pdf').read_bytes())
-with zipfile.ZipFile(out/'opora-submit.zip','w',zipfile.ZIP_DEFLATED) as z:
-    for name in ['solution.py','core.py','requirements.txt']:z.write(root/name,name)
-with zipfile.ZipFile(out/'opora-final.zip','w',zipfile.ZIP_DEFLATED) as z:
-    files=['core.py','solution.py','server.py','requirements.txt','fetch_materials.py','evaluate.py','Dockerfile','compose.yaml','.dockerignore','.env.example','README.md','web/index.html','data/knowledge-base.zip','data/demo_questions.csv','data/demo_output.csv','data/allowed_requirements.txt','output/opora-presentation.pdf']
+(root/'web/presentation.pdf').write_bytes((out/'opora-presentation-v2.pdf').read_bytes())
+with zipfile.ZipFile(out/'opora-submit-v2.zip','w',zipfile.ZIP_DEFLATED) as z:
+    for name in ['solution.py','core.py','engine_v2.py','requirements.txt']:z.write(root/name,name)
+with zipfile.ZipFile(out/'opora-final-v2.zip','w',zipfile.ZIP_DEFLATED) as z:
+    files=['core.py','engine_v2.py','solution.py','server.py','requirements.txt','fetch_materials.py','evaluate.py','benchmark_v2.py','Dockerfile','compose.yaml','.dockerignore','.env.example','README.md','web/index.html','data/knowledge-base.zip','data/demo_questions.csv','data/demo_output.csv','data/allowed_requirements.txt','output/opora-presentation-v2.pdf']
     files+=['docs/'+p.name for p in (root/'docs').iterdir() if p.is_file()]
-    files+=['tests/test_core.py','build_showcase.py','verify_local.py']
+    files+=['tests/'+p.name for p in (root/'tests').glob('test_*.py')]
+    files+=['build_showcase.py','verify_local.py','build_deliverables.py','refresh_materials.py','finalize_report.py']
     files += ['web/'+p.name for p in (root/'web').iterdir() if p.is_file() and p.name!='index.html']
     for name in files:z.write(root/name,name)
-for name in ['opora-submit.zip','opora-final.zip','opora-presentation.pdf']:
+for name in ['opora-submit-v2.zip','opora-final-v2.zip','opora-presentation-v2.pdf']:
     p=out/name;print(name,p.stat().st_size,hashlib.sha256(p.read_bytes()).hexdigest())
