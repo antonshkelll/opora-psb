@@ -1,6 +1,6 @@
 FROM python:3.11.14-slim
 WORKDIR /app
-COPY core.py engine_v2.py server.py solution.py requirements.txt fetch_materials.py ./
+COPY core.py engine_v3.py server.py solution.py requirements.txt fetch_materials.py ./
 COPY web ./web
 COPY data ./data
 RUN if [ ! -f data/knowledge-base.zip ]; then python fetch_materials.py; fi

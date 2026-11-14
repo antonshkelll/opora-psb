@@ -3,9 +3,9 @@ from pathlib import Path
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse
 from core import Corpus
-from engine_v2 import GroundedAssistant
+from engine_v3 import LegalAssistant
 
-bot=GroundedAssistant(Corpus())
+bot=LegalAssistant(Corpus())
 class Handler(BaseHTTPRequestHandler):
     def send(self,code,body,kind='application/json; charset=utf-8'):
         raw=body.encode('utf-8'); self.send_response(code); self.send_header('Content-Type',kind); self.send_header('Content-Length',str(len(raw))); self.send_header('X-Content-Type-Options','nosniff'); self.end_headers(); self.wfile.write(raw)

@@ -4,7 +4,7 @@
 
 | Режим | Доступ | Настройка | Статус |
 |---|---|---|---|
-| Ollama, Qwen3.5 4B | Локально, без ключа и оплаты за запросы | LLM_PROVIDER=ollama | Установлена на D; полный прогон 18 открытых вопросов; отчёт v2-real-demo-report.json |
+| Ollama, Qwen3.5 4B | Локально, без ключа и оплаты за запросы | LLM_PROVIDER=ollama | Установлена на D; контроль V3: docs/v3-real-smoke.json |
 | OpenRouter Free | Свой API-ключ, бесплатные модели с квотами | LLM_PROVIDER=openrouter, OPENROUTER_API_KEY | Адаптер реализован, платные ID отклоняются; без ключа реальные ответы не проверены |
 | Gemini 3.8 Flash | Свой ключ Google AI Studio и доступный Free Tier | LLM_PROVIDER=gemini, GEMINI_API_KEY | Адаптер реализован; без ключа реальные ответы не проверены |
 | Организаторы | Служебный прокси и модель из окружения | LLM_PROVIDER=organizer | Обязателен для соревнования; доступ не предоставлен |
