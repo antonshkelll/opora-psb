@@ -1,6 +1,6 @@
 {
   "corpus_documents": 21,
-  "chunks": 89,
+  "chunks": 171,
   "removed_injection_lines": 1,
   "corpus_sha256": "5c9936c86f7d463194741f3f7099faae4d49355b9125735944d548ec00aaf73b",
   "metric": "document recall@7 with applicability filter",
@@ -21,11 +21,6 @@
       "id": "2",
       "expected_document": "D20",
       "retrieved": [
-        "D06",
-        "D07",
-        "D14",
-        "D15",
-        "D17",
         "D20"
       ],
       "hit": true
@@ -35,7 +30,6 @@
       "expected_document": null,
       "retrieved": [
         "D11",
-        "D17",
         "D18",
         "D20",
         "D21"
@@ -58,7 +52,6 @@
         "D02",
         "D03",
         "D04",
-        "D05",
         "D06"
       ],
       "hit": true
@@ -99,13 +92,9 @@
       "id": "10",
       "expected_document": "D07",
       "retrieved": [
-        "D01",
-        "D04",
         "D05",
         "D06",
-        "D07",
-        "D19",
-        "D20"
+        "D07"
       ],
       "hit": true
     },
@@ -113,13 +102,9 @@
       "id": "11",
       "expected_document": "D08",
       "retrieved": [
-        "D02",
-        "D03",
-        "D05",
         "D06",
         "D07",
-        "D08",
-        "D10"
+        "D08"
       ],
       "hit": true
     },
@@ -127,11 +112,8 @@
       "id": "12",
       "expected_document": "D20",
       "retrieved": [
-        "D08",
-        "D18",
         "D19",
-        "D20",
-        "D21"
+        "D20"
       ],
       "hit": true
     },
@@ -139,11 +121,9 @@
       "id": "13",
       "expected_document": "D09",
       "retrieved": [
-        "D05",
         "D07",
         "D09",
-        "D10",
-        "D17"
+        "D10"
       ],
       "hit": true
     },
@@ -151,10 +131,8 @@
       "id": "14",
       "expected_document": "D19",
       "retrieved": [
-        "D18",
         "D19",
-        "D20",
-        "D21"
+        "D20"
       ],
       "hit": true
     },

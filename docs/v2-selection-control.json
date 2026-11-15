@@ -1,0 +1,637 @@
+{
+  "pipeline": "v2",
+  "provider": "ollama",
+  "model": "qwen3.5:4b",
+  "engine_sha256": "dee7ae5789b7c2d124a506476e4c44a3027df28243e8aa6dd0b1192100671089",
+  "corpus_sha256": "5c9936c86f7d463194741f3f7099faae4d49355b9125735944d548ec00aaf73b",
+  "note": "Real local model selections on all 18 public questions, with four affected cases remeasured. Final renderer replay is explicit; original measured answers and latency preserved. Keyword/source rubric is not legal accuracy or LLM-judge score.",
+  "cases": [
+    {
+      "id": "1",
+      "question": "Какая арендная плата по договору с ООО «Северный Склад» и до какого числа её нужно вносить?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«3.1. Арендная плата составляет 450 000 (четыреста пятьдесят тысяч) рублей в месяц, включая НДС.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 3.1 [D01U001].\n\n«3.2. Арендная плата вносится ежемесячно, не позднее 5-го числа текущего месяца.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 3.2 [D01U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 86078,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 2837,
+        "selected_paragraphs": [
+          "D01U001:P014",
+          "D01U001:P015"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D01U001:P014",
+            "D01U001:P015"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«3.1. Арендная плата составляет 450 000 (четыреста пятьдесят тысяч) рублей в месяц, включая НДС.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 3.1 [D01U001].\n\n«3.2. Арендная плата вносится ежемесячно, не позднее 5-го числа текущего месяца.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 3.2 [D01U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "2",
+      "question": "Какой максимальный срок испытания можно установить главному бухгалтеру?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«Срок испытания не может превышать трех месяцев, а для руководителей организаций и их заместителей, главных бухгалтеров и их заместителей, руководителей филиалов, представительств или иных обособленных структурных подразделений организаций - шести месяцев, если иное не установлено федеральным законом.»\nИсточник: Испытательный срок. Статья 70. ТК РФ Испытание при приеме на работу. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P018 [D20U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 66781,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 2751,
+        "selected_paragraphs": [
+          "D20U001:P018"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D20U001:P018"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«Срок испытания не может превышать трех месяцев, а для руководителей организаций и их заместителей, главных бухгалтеров и их заместителей, руководителей филиалов, представительств или иных обособленных структурных подразделений организаций - шести месяцев, если иное не установлено федеральным законом.»\nИсточник: Испытательный срок. Статья 70. ТК РФ Испытание при приеме на работу. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P018 [D20U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "3",
+      "question": "Какой размер пособия по беременности и родам?",
+      "status": "partial",
+      "answer": "В предоставленной базе не найдено положения, которое позволяет достоверно ответить на этот вопрос. Нужен документ с соответствующим правилом.",
+      "facts_check": true,
+      "fact_groups": [
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 144688,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 7426,
+        "selected_paragraphs": [],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "partial",
+          "verdict": "facts",
+          "selected": [
+            "D20U001:P011"
+          ],
+          "reason": "missing_rule"
+        }
+      },
+      "measurement_engine_sha256": "dee7ae5789b7c2d124a506476e4c44a3027df28243e8aa6dd0b1192100671089",
+      "measurement_mode": "real_model_call",
+      "measured_answer": "По предоставленным документам:\n\n«беременных женщин и женщин, имеющих детей в возрасте до трех лет;»\nИсточник: Испытательный срок. Статья 70. ТК РФ Испытание при приеме на работу. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P011 [D20U001].\n\nПриведённые положения подтверждают только указанную часть ответа. Для полного вывода в базе недостаточно соответствующих условий или документов.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "4",
+      "question": "Почему по договору с ООО «Северный Склад» арендная плата 500 000 рублей в месяц?",
+      "status": "partial",
+      "answer": "Предпосылка вопроса не подтверждается документами. В базе указано:\n\n«3.1. Арендная плата составляет 450 000 (четыреста пятьдесят тысяч) рублей в месяц, включая НДС.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 3.1 [D01U001].\n\nПриведённые положения подтверждают только указанную часть ответа. Для полного вывода в базе недостаточно соответствующих условий или документов.",
+      "facts_check": true,
+      "fact_groups": [
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 74828,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 2837,
+        "selected_paragraphs": [
+          "D01U001:P014"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "partial",
+          "verdict": "correction",
+          "selected": [
+            "D01U001:P014"
+          ],
+          "reason": "missing_rule"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "Предпосылка вопроса не подтверждается документами. В базе указано:\n\n«3.1. Арендная плата составляет 450 000 (четыреста пятьдесят тысяч) рублей в месяц, включая НДС.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 3.1 [D01U001].\n\nВ предоставленной базе не найдено положения, которое позволяет достоверно ответить на этот вопрос. Нужен документ с соответствующим правилом.",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "5",
+      "question": "Договор на 12 млн рублей заключали в августе 2024 года. Нужно ли было одобрение генерального директора?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«2.4. Договоры на сумму свыше 10 000 000 (десяти миллионов) рублей подлежат одобрению генеральным директором до подписания.»\nИсточник: Регламент согласования договоров ред 2023 (утратил силу), п. 2.4 [D06U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 183703,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 8256,
+        "selected_paragraphs": [
+          "D06U001:P013"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D06U001:P013",
+            "D06U001:P014"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "dee7ae5789b7c2d124a506476e4c44a3027df28243e8aa6dd0b1192100671089",
+      "measurement_mode": "real_model_call",
+      "measured_answer": "По предоставленным документам:\n\n«2.4. Договоры на сумму свыше 10 000 000 (десяти миллионов) рублей подлежат одобрению генеральным директором до подписания.»\nИсточник: Регламент согласования договоров ред 2023 (утратил силу), п. 2.4 [D06U001].",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "6",
+      "question": "Пользователь: Какой гарантийный срок на товар по договору с ООО «Альфа-Трейд»?\nАссистент: По договору поставки № П-17/2024 с ООО «Альфа-Трейд» гарантийный срок — 24 месяца с даты поставки (п. 5.2).\nПользователь: А за сколько дней после поставки нужно проверить качество?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«6.1. Приёмка Товара по количеству производится в момент передачи, по качеству : в течение 5 (пяти) рабочих дней с даты поставки.»\nИсточник: Договор поставки П-17-2024 Альфа-Трейд, п. 6.1 [D02U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 96906,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 4041,
+        "selected_paragraphs": [
+          "D02U001:P024"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D02U001:P024"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«6.1. Приёмка Товара по количеству производится в момент передачи, по качеству : в течение 5 (пяти) рабочих дней с даты поставки.»\nИсточник: Договор поставки П-17-2024 Альфа-Трейд, п. 6.1 [D02U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "7",
+      "question": "К нашему складу в Химках грузовик приезжает иногда в два часа ночи. По договору с «Северным Складом» нас должны пропускать?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«4.3. Арендодатель обязан обеспечить беспрепятственный доступ Арендатора и его транспорта к Помещению круглосуточно.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 4.3 [D01U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 79891,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 2837,
+        "selected_paragraphs": [
+          "D01U001:P022"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D01U001:P022",
+            "D01U001:P023"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«4.3. Арендодатель обязан обеспечить беспрепятственный доступ Арендатора и его транспорта к Помещению круглосуточно.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 4.3 [D01U001].\n\n«5. Ответственность сторон»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 5 [D01U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "8",
+      "question": "«Альфа-Трейд» привёз мебель с дефектами. Что нужно приложить к претензии?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«6.2. При обнаружении недостатков Покупатель направляет Поставщику претензию с приложением акта о выявленных недостатках.»\nИсточник: Договор поставки П-17-2024 Альфа-Трейд, п. 6.2 [D02U001].\n\n«8.1. Претензионный порядок урегулирования споров обязателен. Срок ответа на претензию : 15 (пятнадцать) календарных дней с даты её получения.»\nИсточник: Договор поставки П-17-2024 Альфа-Трейд, п. 8.1 [D02U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 95750,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 4041,
+        "selected_paragraphs": [
+          "D02U001:P025",
+          "D02U001:P033"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D02U001:P025",
+            "D02U001:P033"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«6.2. При обнаружении недостатков Покупатель направляет Поставщику претензию с приложением акта о выявленных недостатках.»\nИсточник: Договор поставки П-17-2024 Альфа-Трейд, п. 6.2 [D02U001].\n\n«8.1. Претензионный порядок урегулирования споров обязателен. Срок ответа на претензию : 15 (пятнадцать) календарных дней с даты её получения.»\nИсточник: Договор поставки П-17-2024 Альфа-Трейд, п. 8.1 [D02U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "9",
+      "question": "По договору с «Альфа-Трейдинг» можем оплатить технику авансом или только после поставки?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«4.2. По соглашению Сторон допускается предоплата. Размер предоплаты указывается в счёте Поставщика.»\nИсточник: Договор поставки ПТ-05-2023 Альфа-Трейдинг, п. 4.2 [D03U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 79031,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 2769,
+        "selected_paragraphs": [
+          "D03U001:P018"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D03U001:P018"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«4.2. По соглашению Сторон допускается предоплата. Размер предоплаты указывается в счёте Поставщика.»\nИсточник: Договор поставки ПТ-05-2023 Альфа-Трейдинг, п. 4.2 [D03U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "10",
+      "question": "Мы готовим новый договор. Кто должен запустить согласование — юристы или руководитель нашего отдела?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«1.3. Инициатором согласования является руководитель подразделения, в интересах которого заключается договор.»\nИсточник: Регламент согласования договоров ред 2025, п. 1.3 [D07U001].\n\n«5.4. Договоры с иностранными контрагентами до подписания проходят проверку юридическим отделом (в том числе в части применимого права и порядка разрешения споров) и валютный контроль финансовым отделом.»\nИсточник: Регламент согласования договоров ред 2025, п. 5.4 [D07U001].\n\n«С 21 апреля 2025 г. до подписания любого договора с иностранным контрагентом инициатор договора обязан обеспечить санкционную проверку контрагента по Чек-листу санкционной проверки (Приложение 1 к настоящему письму).»\nИсточник: Письмо комплаенс-службы К-12 от 15.04.2025, абзац P008 [D05U001].\n\n«Требование применяется в дополнение к порядку, установленному п. 5.4 Регламента согласования договоров (ред. от 01.03.2025), до внесения соответствующих изменений в Регламент.»\nИсточник: Письмо комплаенс-службы К-12 от 15.04.2025, абзац P010 [D05U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 135156,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 4959,
+        "selected_paragraphs": [
+          "D07U001:P007",
+          "D07U001:P024",
+          "D05U001:P008",
+          "D05U001:P010"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D07U001:P007",
+            "D07U001:P024",
+            "D05U001:P008",
+            "D05U001:P010"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "dee7ae5789b7c2d124a506476e4c44a3027df28243e8aa6dd0b1192100671089",
+      "measurement_mode": "real_model_call",
+      "measured_answer": "По предоставленным документам:\n\n«1.3. Инициатором согласования является руководитель подразделения, в интересах которого заключается договор.»\nИсточник: Регламент согласования договоров ред 2025, п. 1.3 [D07U001].\n\n«5.4. Договоры с иностранными контрагентами до подписания проходят проверку юридическим отделом (в том числе в части применимого права и порядка разрешения споров) и валютный контроль финансовым отделом.»\nИсточник: Регламент согласования договоров ред 2025, п. 5.4 [D07U001].\n\n«С 21 апреля 2025 г. до подписания любого договора с иностранным контрагентом инициатор договора обязан обеспечить санкционную проверку контрагента по Чек-листу санкционной проверки (Приложение 1 к настоящему письму).»\nИсточник: Письмо комплаенс-службы К-12 от 15.04.2025, абзац P008 [D05U001].\n\n«Требование применяется в дополнение к порядку, установленному п. 5.4 Регламента согласования договоров (ред. от 01.03.2025), до внесения соответствующих изменений в Регламент.»\nИсточник: Письмо комплаенс-службы К-12 от 15.04.2025, абзац P010 [D05U001].",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "11",
+      "question": "Хочу взять оригинал договора из архива на четыре рабочих дня. Это разрешено?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«Выдача оригиналов из архива сотрудникам других подразделений производится по заявке в СЭД на срок не более 3 (трёх) рабочих дней.»\nИсточник: Служебная записка об архиве договоров, абзац P007 [D08U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 106813,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 4269,
+        "selected_paragraphs": [
+          "D08U001:P007"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D08U001:P007"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«Выдача оригиналов из архива сотрудникам других подразделений производится по заявке в СЭД на срок не более 3 (трёх) рабочих дней.»\nИсточник: Служебная записка об архиве договоров, абзац P007 [D08U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "12",
+      "question": "Сотрудник работает на испытательном сроке. На него распространяются обычные трудовые правила?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«В период испытания на работника распространяются положения трудового законодательства и иных нормативных правовых актов, содержащих нормы трудового права, коллективного договора, соглашений, локальных нормативных актов.»\nИсточник: Испытательный срок. Статья 70. ТК РФ Испытание при приеме на работу. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P008 [D20U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 131687,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 7860,
+        "selected_paragraphs": [
+          "D20U001:P008"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D20U001:P008"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«В период испытания на работника распространяются положения трудового законодательства и иных нормативных правовых актов, содержащих нормы трудового права, коллективного договора, соглашений, локальных нормативных актов.»\nИсточник: Испытательный срок. Статья 70. ТК РФ Испытание при приеме на работу. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P008 [D20U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "13",
+      "question": "Человек отозвал согласие на обработку данных. Значит, мы обязаны сразу удалить вообще всё?",
+      "status": "partial",
+      "answer": "По предоставленным документам:\n\n«2. Согласие на обработку персональных данных может быть отозвано субъектом персональных данных. В случае отзыва субъектом персональных данных согласия на обработку персональных данных оператор вправе продолжить обработку персональных данных без согласия субъекта персональных данных при наличии оснований, указанных в пунктах 2 - 11 части 1 статьи 6, части 2 статьи 10 и части 2 статьи 11 настоящего Федерального закона.»\nИсточник: Статья 9. Согласие субъекта персональных данных на обработку его персональных данных. Федеральный закон от 27.07.2006 N 152-ФЗ \"О персональных данных\" (с изменениями и дополнениями), п. 2 [D09U001].\n\nПриведённые положения подтверждают только указанную часть ответа. Для полного вывода в базе недостаточно соответствующих условий или документов.",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 121828,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 7207,
+        "selected_paragraphs": [
+          "D09U001:P008"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "partial",
+          "verdict": "facts",
+          "selected": [
+            "D09U001:P008"
+          ],
+          "reason": "missing_rule"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«2. Согласие на обработку персональных данных может быть отозвано субъектом персональных данных. В случае отзыва субъектом персональных данных согласия на обработку персональных данных оператор вправе продолжить обработку персональных данных без согласия субъекта персональных данных при наличии оснований, указанных в пунктах 2 - 11 части 1 статьи 6, части 2 статьи 10 и части 2 статьи 11 настоящего Федерального закона.»\nИсточник: Статья 9. Согласие субъекта персональных данных на обработку его персональных данных. Федеральный закон от 27.07.2006 N 152-ФЗ \"О персональных данных\" (с изменениями и дополнениями), п. 2 [D09U001].\n\nВ предоставленной базе не найдено положения, которое позволяет достоверно ответить на этот вопрос. Нужен документ с соответствующим правилом.",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "14",
+      "question": "Мы нанимаем человека только на сезонные работы летом. Можно оформить срочный трудовой договор?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«Срочный трудовой договор заключается:»\nИсточник: Статья 59. ТК РФ Срочный трудовой договор. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P007 [D19U001].\n\n«для выполнения сезонных работ, когда в силу природных условий работа может производиться только в течение определенного периода (сезона);»\nИсточник: Статья 59. ТК РФ Срочный трудовой договор. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P010 [D19U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 135704,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 7860,
+        "selected_paragraphs": [
+          "D19U001:P007",
+          "D19U001:P010"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D19U001:P007",
+            "D19U001:P010"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«Срочный трудовой договор заключается:»\nИсточник: Статья 59. ТК РФ Срочный трудовой договор. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P007 [D19U001].\n\n«для выполнения сезонных работ, когда в силу природных условий работа может производиться только в течение определенного периода (сезона);»\nИсточник: Статья 59. ТК РФ Срочный трудовой договор. Трудовой кодекс Российской Федерации от 30.12.2001 N 197-ФЗ (ТК РФ) (с изменениями и дополнениями), абзац P010 [D19U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "15",
+      "question": "Пользователь: Мы арендуем склад у «Северного Склада». Планируем съезжать.\nАссистент: Подскажите номер договора, чтобы я мог проверить условия возврата помещения.\nПользователь: А-08/2024. Можно просто сдать ключи или обязательно оформлять акт?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«6.3. При прекращении договора Арендатор возвращает Помещение по акту в состоянии, в котором он его получил, с учётом нормального износа.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 6.3 [D01U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 81485,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 2837,
+        "selected_paragraphs": [
+          "D01U001:P028"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D01U001:P028"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "dee7ae5789b7c2d124a506476e4c44a3027df28243e8aa6dd0b1192100671089",
+      "measurement_mode": "real_model_call",
+      "measured_answer": "По предоставленным документам:\n\n«6.3. При прекращении договора Арендатор возвращает Помещение по акту в состоянии, в котором он его получил, с учётом нормального износа.»\nИсточник: Договор аренды А-08-2024 Северный Склад, п. 6.3 [D01U001].",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "16",
+      "question": "Пользователь: Мы заключили договор поставки мебели с «Альфа-Трейд». Хочу проверить расходы перед оплатой.\nАссистент: Подскажите номер договора и что именно нужно уточнить.\nПользователь: П-17/2024. Доставка и упаковка уже включены в цену или их оплачиваем отдельно?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«2.1. Цена Товара указывается в Спецификациях и включает НДС по ставке 20%, стоимость упаковки и доставки до склада Покупателя.»\nИсточник: Договор поставки П-17-2024 Альфа-Трейд, п. 2.1 [D02U001].\n\n«Новый адрес доставки применяется к партиям Товара, Спецификации на которые подписаны после 1 октября 2024 г.»\nИсточник: Доп соглашение 1 к договору П-17-2024, абзац P007 [D04U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 115125,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 5006,
+        "selected_paragraphs": [
+          "D02U001:P010",
+          "D04U001:P007"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D02U001:P010",
+            "D04U001:P007"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«2.1. Цена Товара указывается в Спецификациях и включает НДС по ставке 20%, стоимость упаковки и доставки до склада Покупателя.»\nИсточник: Договор поставки П-17-2024 Альфа-Трейд, п. 2.1 [D02U001].\n\n«Новый адрес доставки применяется к партиям Товара, Спецификации на которые подписаны после 1 октября 2024 г.»\nИсточник: Доп соглашение 1 к договору П-17-2024, абзац P007 [D04U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "17",
+      "question": "Пользователь: Подскажите гарантию по договору с «Альфой».\nАссистент: Уточните, пожалуйста, поставщик — «Альфа-Трейд» или «Альфа-Трейдинг»?\nПользователь: «Альфа-Трейдинг», у них компьютеры покупали. На сколько гарантия?",
+      "status": "partial",
+      "answer": "По предоставленным документам:\n\n«6.1. Гарантийный срок на Товар устанавливается производителем и указывается в гарантийном талоне.»\nИсточник: Договор поставки ПТ-05-2023 Альфа-Трейдинг, п. 6.1 [D03U001].\n\nПриведённые положения подтверждают только указанную часть ответа. Для полного вывода в базе недостаточно соответствующих условий или документов.",
+      "facts_check": true,
+      "fact_groups": [
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 101891,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 2769,
+        "selected_paragraphs": [
+          "D03U001:P024"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "partial",
+          "verdict": "facts",
+          "selected": [
+            "D03U001:P024"
+          ],
+          "reason": "missing_rule"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«6.1. Гарантийный срок на Товар устанавливается производителем и указывается в гарантийном талоне.»\nИсточник: Договор поставки ПТ-05-2023 Альфа-Трейдинг, п. 6.1 [D03U001].\n\nВ предоставленной базе не найдено положения, которое позволяет достоверно ответить на этот вопрос. Нужен документ с соответствующим правилом.",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    },
+    {
+      "id": "18",
+      "question": "Пользователь: Подписали новый договор, оригинал пока у меня. Не знаю, кому его дальше передавать.\nАссистент: Вы про порядок передачи документов в ООО «Меридиан» после подписания?\nПользователь: Да. В юротдел нужно отнести сразу или есть какой-то срок?",
+      "status": "answered",
+      "answer": "По предоставленным документам:\n\n«3.2. Подписанный оригинал договора передаётся в юридический отдел для хранения в течение 3 (трёх) рабочих дней с даты подписания.»\nИсточник: Регламент согласования договоров ред 2025, п. 3.2 [D07U001].\n\n«Оригиналы подписанных договоров, дополнительных соглашений и приложений к ним хранятся в архиве юридического отдела (кабинет 412).»\nИсточник: Служебная записка об архиве договоров, абзац P005 [D08U001].",
+      "facts_check": true,
+      "fact_groups": [
+        true,
+        true
+      ],
+      "citation_check": true,
+      "rubric_pass": true,
+      "elapsed_ms": 171390,
+      "diagnostics": {
+        "generation_calls": 1,
+        "context_chars": 6932,
+        "selected_paragraphs": [
+          "D07U001:P017",
+          "D08U001:P005"
+        ],
+        "model_free_legal_text": false,
+        "decision": {
+          "status": "answered",
+          "verdict": "facts",
+          "selected": [
+            "D07U001:P017",
+            "D08U001:P005"
+          ],
+          "reason": "none"
+        }
+      },
+      "measurement_engine_sha256": "5230db8b5c8a9d991fa4d1c9ff5c52257dbd7f1656c8ad24240c3c442923b9a4",
+      "measured_answer": "По предоставленным документам:\n\n«3.2. Подписанный оригинал договора передаётся в юридический отдел для хранения в течение 3 (трёх) рабочих дней с даты подписания.»\nИсточник: Регламент согласования договоров ред 2025, п. 3.2 [D07U001].\n\n«Оригиналы подписанных договоров, дополнительных соглашений и приложений к ним хранятся в архиве юридического отдела (кабинет 412).»\nИсточник: Служебная записка об архиве договоров, абзац P005 [D08U001].",
+      "decision_reconstruction": "Enums and IDs recovered from measured answer and diagnostics; no source selection changed.",
+      "rendering": "Recorded model decision replayed through final renderer; not a new model call."
+    }
+  ],
+  "summary": {
+    "completed": 18,
+    "rubric_pass": 18,
+    "unavailable": 0,
+    "generation_calls": 18
+  },
+  "render_engine_sha256": "5ee2d2a852d0663eaaa779d4c69219959cbcc8eb8cff86c10d4eaf3b563e44f1"
+}
