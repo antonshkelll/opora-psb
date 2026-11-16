@@ -2,7 +2,7 @@
 import csv, os, time, sys, concurrent.futures, json
 from pathlib import Path
 from core import Corpus, Gateway, env, env_int
-from engine_v4 import GroundedAssistant
+from engine_v5 import Assistant
 
 def main():
     data=Path(env('DATA_DIR','data')); started=time.monotonic()
@@ -12,7 +12,7 @@ def main():
         rows=list(reader)
     ids=[r['id'] for r in rows]
     if len(set(ids))!=len(ids) or any(not i for i in ids): raise ValueError('Invalid IDs')
-    bot=GroundedAssistant(Corpus(data),Gateway(provider='organizer')); deadline=started+1120
+    bot=Assistant(Corpus(data),Gateway(provider='organizer')); deadline=started+1120
     diagnostics=[]
     results={i:'Не удалось обработать вопрос в доступное время. Юридический вывод не сделан.' for i in ids}
     def save():
@@ -35,7 +35,7 @@ def main():
             else:i,answer,info=value
             diagnostics.append(info);results[i]=answer;save()
             print(json.dumps(info,ensure_ascii=False),file=sys.stderr,flush=True)
-    Path('run_report.json').write_text(json.dumps({'pipeline':'v4','questions':len(rows),'elapsed_seconds':round(time.monotonic()-started,2),'statuses':{s:sum(i['status']==s for i in diagnostics) for s in sorted({i['status'] for i in diagnostics})},'items':diagnostics},ensure_ascii=False,indent=2),encoding='utf-8')
+    Path('run_report.json').write_text(json.dumps({'pipeline':'v5','questions':len(rows),'elapsed_seconds':round(time.monotonic()-started,2),'statuses':{s:sum(i['status']==s for i in diagnostics) for s in sorted({i['status'] for i in diagnostics})},'items':diagnostics},ensure_ascii=False,indent=2),encoding='utf-8')
     print('Completed '+str(len(rows))+' questions',file=sys.stderr)
 
 if __name__=='__main__': main()

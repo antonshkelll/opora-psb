@@ -21,6 +21,7 @@
       "id": "2",
       "expected_document": "D20",
       "retrieved": [
+        "D07",
         "D20"
       ],
       "hit": true
@@ -48,11 +49,10 @@
       "id": "5",
       "expected_document": "D06",
       "retrieved": [
-        "D01",
-        "D02",
-        "D03",
-        "D04",
-        "D06"
+        "D06",
+        "D10",
+        "D19",
+        "D20"
       ],
       "hit": true
     },
@@ -92,9 +92,10 @@
       "id": "10",
       "expected_document": "D07",
       "retrieved": [
-        "D05",
-        "D06",
-        "D07"
+        "D07",
+        "D08",
+        "D19",
+        "D20"
       ],
       "hit": true
     },
@@ -102,7 +103,8 @@
       "id": "11",
       "expected_document": "D08",
       "retrieved": [
-        "D06",
+        "D02",
+        "D03",
         "D07",
         "D08"
       ],
@@ -112,8 +114,11 @@
       "id": "12",
       "expected_document": "D20",
       "retrieved": [
+        "D08",
+        "D17",
         "D19",
-        "D20"
+        "D20",
+        "D21"
       ],
       "hit": true
     },
@@ -121,9 +126,7 @@
       "id": "13",
       "expected_document": "D09",
       "retrieved": [
-        "D07",
-        "D09",
-        "D10"
+        "D09"
       ],
       "hit": true
     },
@@ -131,6 +134,7 @@
       "id": "14",
       "expected_document": "D19",
       "retrieved": [
+        "D18",
         "D19",
         "D20"
       ],
@@ -168,7 +172,7 @@
         "D01",
         "D02",
         "D03",
-        "D06",
+        "D04",
         "D07",
         "D08",
         "D20"

@@ -13,7 +13,7 @@ class PlatformContract(unittest.TestCase):
                 context=json.loads(body['messages'][1]['content'])['CONTEXT']
                 source=next(s for s in context if 'А-08' in s['title'])
                 pid=next(k for k,v in source['paragraphs'].items() if v.startswith('3.1.'))
-                decision={'status':'answered','verdict':'facts','selected':[source['id']+':'+pid],'reason':'none'}
+                decision={'status':'answered','claims':[{'text':source['paragraphs'][pid],'evidence':[source['id']+':'+pid]}],'missing':''}
                 raw=json.dumps({'choices':[{'message':{'content':json.dumps(decision,ensure_ascii=False)}}]}).encode()
                 self.send_response(200);self.send_header('Content-Type','application/json');self.end_headers();self.wfile.write(raw)
             def log_message(self,*args):pass
@@ -24,7 +24,7 @@ class PlatformContract(unittest.TestCase):
                 work=pathlib.Path(temp);data=work/'data';data.mkdir()
                 archive=work/'entry.zip'
                 with zipfile.ZipFile(archive,'w') as z:
-                    for name in ('solution.py','core.py','engine_v4.py','requirements.txt'):z.write(root/name,name)
+                    for name in ('solution.py','core.py','engine_v5.py','requirements.txt'):z.write(root/name,name)
                 with zipfile.ZipFile(archive) as z:
                     self.assertEqual(len(z.namelist()),4);z.extractall(work)
                 shutil.copyfile(root/'data/knowledge-base.zip',data/'kb.zip')
