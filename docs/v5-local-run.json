@@ -443,5 +443,5 @@
       "rendering_note": "Recorded model output replayed through final local validation; no additional model call. measured_answer and elapsed_ms preserve original measurement. Zero-call sourced operations are labelled in diagnostics."
     }
   ],
-  "final_engine_sha256": "e788683ad7ab5e88e341d1d447c56fe932af40919be69594f0e4d7eb4ad43afd"
+  "final_engine_sha256": "b7088e778c4111054438c56fddd5f3532e19e1824921a83f7f18435b280741ab"
 }
