@@ -1,3 +1,7 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/portfolio-dark.svg"><img src="assets/portfolio-light.svg" width="100%" alt="ОПОРА · Hack&amp;Change / ПСБ"></picture>
+
+[Профиль](https://github.com/antonshkelll) · [Портфолио](https://antonshkel.ru)
+
 # ОПОРА 5
 
 [Интерфейс](https://antonshkelll.github.io/opora-psb/) · [Презентация](https://antonshkelll.github.io/opora-psb/deck.html) · [Релиз V5](https://github.com/antonshkelll/opora-psb/releases/tag/v5.0.0)
@@ -55,3 +59,7 @@ BM25 и русские префиксы сохраняют точные номе
 Метрики пилота: правильность вывода, полнота исключений, ложные отказы, неподтверждённые добавления и время проверки юристом. Денежный эффект и экономия времени пока не измерены. Для банка требуются SSO, права доступа и журнал аудита. Реальные банковские данные нельзя передавать бесплатным API без разрешения.
 
 [Роли](docs/TEAM.md). [Регламент](https://docs.google.com/document/d/1GjOSBr6xtiweDrMI5Kvcnug4wcbHCzg7n5TJ4UBnuxg/edit). [Материалы](https://drive.google.com/drive/folders/1lendasLVlcKUcuM8mOrWKHD-C2dWtm9F). Права на учебный корпус остаются у правообладателей.
+
+## Мой вклад
+
+Антон Шкель: **Product / Business Analyst**, архитектура, интерфейс и интеграция. Анализ требований, продуктовые сценарии, критерии приёмки, проверка качества, сайт, упаковка и защита. [Что выполнено](docs/WORK_DONE.md) · [Командные зоны поддержки](docs/TEAM.md).
